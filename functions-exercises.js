@@ -1,8 +1,8 @@
 // 1.
-var myVar = "This is global";
+var myVar = 'This is global';
 
 function someFunction() {
-  var myVar = "This is local";
+  var myVar = 'This is local';
 }
 
 someFunction();
@@ -17,10 +17,10 @@ This declaration of a new variable with the name myVar shadows the variable of t
  the console. */
 
 // 2.
-var myVar = "This is global";
+var myVar = 'This is global';
 
 function someFunction() {
-  var myVar = "This is local";
+  var myVar = 'This is local';
   console.log(myVar);
 }
 
@@ -33,10 +33,10 @@ myVar is declared within the function it has local scope and hides the variable
 of the same name in the outer scope. This is called variable shadowing. */
 
 // 3.
-var myVar = "This is global";
+var myVar = 'This is global';
 
 function someFunction() {
-  myVar = "This is local";
+  myVar = 'This is local';
 }
 
 someFunction();
@@ -50,7 +50,7 @@ the global scope is reassigned which explains why 'this is local' is printed to
 the console. */
 
 // 4.
-var myVar = "This is global";
+var myVar = 'This is global';
 
 function someFunction() {
   console.log(myVar);
@@ -62,7 +62,7 @@ someFunction(); // -> This is global
 
 // 5.
 function someFunction() {
-  myVar = "This is global";
+  myVar = 'This is global';
 }
 
 someFunction();
@@ -119,4 +119,45 @@ console.log(a); // -> [1, 2, 10]
 
 /* arrays are not primitive values, they are passed by reference rather than by values;
 what this means in practical terms is that the elements within an array can be changed i.e.,
-they are mutable. */
+they are mutable. cd */
+
+// 9.
+console.log(a); // -> undefined
+
+var a = 1;
+
+/* Although the variable declaration of a is hoisted to the top of the scope,
+the assignment occurs below the call to console.log with a passed in as an
+argument. JavaScript gives the value of undefined to variable declarations that
+have not yet been assigned a value. (The JavaScript interpreter doesn't
+"immediately" execute all of a program's code line by line. Instead, it first
+goes over the code to find and associate variable declarations with their
+appropriate scope. Visually, this is as if JavaScript moves (or "hoists") each
+variable declaration to the top of its scope. The assignment operation,
+however, is not hoisted.) */
+
+// 10.
+logValue(); // -> Hello, world!
+
+function logValue() {
+  console.log('Hello, world!');
+}
+
+/* The function declaration is hoisted to the top of the scope, along with the
+body of the function. What this means is that the call to logValue will produce
+the same result as calling the function below the function declaration.  */
+
+// 10. further exploration
+var logValue = 'foo';
+
+function logValue() {
+  console.log('Hello, world!');
+}
+
+console.log(typeof logValue); // -> string
+
+/* When hoisting occurs, function declarations are placed at the top of the scope
+and then variable declarations are placed below them. When the variable declaration
+logValue is hoisted to the top, it is placed below the declaration of the function
+myValue which causes the program to ignore the body of the function declaration
+and reassign the variable myValue to the string value 'foo'. */
