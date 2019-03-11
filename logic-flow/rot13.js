@@ -15,6 +15,7 @@ function isFirst13(char) {
 }
 
 function rot13(string) {
+  const ROTATION = 13;
   let cipheredString = '';
 
   for (let i = 0; i < string.length; i += 1) {
@@ -22,9 +23,9 @@ function rot13(string) {
 
     if (isAlphabetic(char)) {
       if (isFirst13(char)) {
-        char = String.fromCharCode(char.charCodeAt(0) + 13);
+        char = String.fromCharCode(char.charCodeAt(0) + ROTATION);
       } else {
-        char = String.fromCharCode(char.charCodeAt(0) - 13);
+        char = String.fromCharCode(char.charCodeAt(0) - ROTATION);
       }
     }
 
