@@ -1,6 +1,8 @@
 const EXAM_WEIGHT = 0.65;
 const EXERCISE_WEIGHT = 0.35;
 
+const sum = (total, value) => total + value;
+
 const determineGrade = (score) => {
   if (score >= 93) return 'A';
   if (score >= 85) return 'B';
@@ -9,8 +11,6 @@ const determineGrade = (score) => {
   if (score >= 60) return 'E';
   return 'F';
 };
-
-const sum = (total, value) => total + value;
 
 const determineAverage = scores => scores.reduce(sum) / scores.length;
 
