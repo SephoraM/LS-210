@@ -1,5 +1,5 @@
 // match every character that is not a (.), (!), or (?) up to and including a (.), (!), or (?)
-const sentenceRegex = /[^.|!|?]+(.|!|\?)/gi;
+const sentenceRegex = /[^.!?]+(.|!|\?)/gi;
 
 const keepLongest = (last, current) => (last.length > current.length ? last : current);
 
@@ -19,7 +19,7 @@ const longText = 'Four score and seven years ago our fathers brought forth'
   + ' dedicated to the proposition that all men are created'
   + ' equal.'
   + ' Now we are engaged in a great civil war, testing whether'
-  + ' that nation, or any nation so conceived and so     dedicated,'
+  + ' that nation, or any nation so conceived and so dedicated,'
   + ' can long endure. We are met on a great battlefield of that'
   + ' war. We have come to dedicate a portion of that field, as'
   + ' a final resting place for those who here gave their lives'
@@ -84,3 +84,5 @@ longestSentence(shorterText);
 // nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
 //
 // The longest sentence has 30 words.
+
+longestSentence('To be or|not to be?');
